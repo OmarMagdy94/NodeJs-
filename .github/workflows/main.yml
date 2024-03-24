@@ -1,0 +1,21 @@
+name: Mahmoud Task
+on:
+  push:
+    branches:  main
+jobs:
+  build-Mahmoud:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4      
+      - name: run command
+        run: |
+             npm ci
+             npm run build --if-present
+  
+  deploy:
+    needs: build-Mahmoud
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Deploy project   
+        run: echo "We are deploying now"
