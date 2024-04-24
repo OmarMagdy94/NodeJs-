@@ -13,8 +13,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ DOCKERHUB_OMAR_MAGDY }}
-          password: ${{ Github_Nodejs_token }}
+          username: ${{ secrets.DOCKERHUB_OMAR_MAGDY }}
+          password: ${{ secrets.Github_Nodejs_token }}
       - name: run command
         run: |
              npm run docker push omar8magdy/nodejs-test1-node:21.7.2-alpine
