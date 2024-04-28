@@ -21,7 +21,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.omar8magdy }}
+          tags: latest
       - name: run command
         run: |
              npm run docker push omar8magdy/nodejs-test1-node:21.7.2-alpine
