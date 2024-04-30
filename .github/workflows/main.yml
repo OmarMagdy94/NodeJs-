@@ -14,7 +14,7 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Build Docker image
-        run: docker build -t omar8magdy/node:22-alpine3.18.
+        run: docker build -t omar8magdy/node:18.1.
 
       - name: Push Docker image
         run: docker push your_dockerhub_username/your_image_name:latest
