@@ -17,4 +17,4 @@ jobs:
         run: docker build -t omar8magdy/node:18.1.
 
       - name: Push Docker image
-        run: docker push your_dockerhub_username/your_image_name:latest
+        run: docker push omar8magdy/node:18.1.
