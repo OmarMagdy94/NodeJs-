@@ -16,5 +16,5 @@ jobs:
       - name: Build Docker image
         run: docker build -f Dockerfile .
       - name: Push Docker image
-        run: docker push omar8magdy/nodejs-test1-image
+        run: docker push omar8magdy/dockerfile
 
