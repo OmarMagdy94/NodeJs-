@@ -11,13 +11,10 @@ jobs:
         uses: actions/checkout@v4
         env:
           DOCKER_TOKEN: ${{ env.DOCKER_TOKEN }}
-        with: 
-         username: omar8magdy 
-         password: ${{ secrets.DOCKER_TOKEN }} 
-         run: ${{ env.DOCKER_TOKEN}} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+  
+        run: ${{ env.DOCKER_TOKEN}} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Build Docker image
-        run: docker build -t omar8magdy/node:18.1.
-
+        run: docker build -t local < .OmarMagdy94/Dockerfile
       - name: Push Docker image
-        run: docker push omar8magdy/node:18.1.
+        run: docker push omar8magdy/node:20.0.
