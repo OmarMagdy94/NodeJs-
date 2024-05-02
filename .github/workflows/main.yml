@@ -14,7 +14,7 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u omar8magdy --password-stdin
 
       - name: Build Docker image
-        run: docker build -t local < .omar8magdy/Dockerfile
+        run: docker build -t local < .OmarMagdy94/NodeJs-/Dockerfile
 
       - name: Push Docker image
         run: docker push omar8magdy/Dockerfile
