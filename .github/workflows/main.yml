@@ -8,15 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        env:
-          DOCKER_TOKEN: ${{ env.DOCKER_TOKEN }}
-  
-      - run: 
-             ${{ env.DOCKER_TOKEN}} 
-             docker login -u omar8magdy --password-stdin
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u omar8magdy --password-stdin
 
       - name: Build Docker image
-        run: docker build -t local < .OmarMagdy94/Dockerfile
+        run: docker build -t local < .omar8magdy/Dockerfile
+
       - name: Push Docker image
-        run: docker push omar8magdy/node:20.0.
+        run: docker push omar8magdy/Dockerfile
+
