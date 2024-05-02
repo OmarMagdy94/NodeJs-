@@ -12,7 +12,9 @@ jobs:
         env:
           DOCKER_TOKEN: ${{ env.DOCKER_TOKEN }}
   
-      - run: ${{ env.DOCKER_TOKEN}} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      - run: 
+             ${{ env.DOCKER_TOKEN}} 
+             docker login -u omar8magdy --password-stdin
 
       - name: Build Docker image
         run: docker build -t local < .OmarMagdy94/Dockerfile
