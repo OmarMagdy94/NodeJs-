@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: mahmoud_task
 on:
   push:
     branches:
@@ -10,11 +10,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # - name: Login to Docker Hub
+      # run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u omar8magdy --password-stdin
+      
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u omar8magdy --password-stdin
+        uses: docker/login-action@v3
+        with:
+          username: omar8magdy
+          password: "${{ secrets.DOCKERHUB_TOKEN }}"
 
       - name: Build Docker image
-        run: docker build -f Dockerfile .
-      - name: Push Docker image
-        run: docker push omar8magdy/dockerfile
+        run: |
+         docker build -t nodejs-api .
+         docker tag nodejs-api omar8magdy/nodejs-test:1 
+         docker push omar8magdy/nodejs-test:1
+      
 
