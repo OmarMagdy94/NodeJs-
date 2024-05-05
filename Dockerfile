@@ -1,5 +1,6 @@
 # Use an official Node.js runtime as a base image
-FROM  node:20.0
+FROM  smlabt/node:1.0.0
+
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
@@ -16,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run your application
-CMD ["node", "app.js"]
+CMD ["npm", "start"]
